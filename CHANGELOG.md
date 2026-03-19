@@ -3,6 +3,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.4] - 2026-03-19
+### Added
+- Bug reporting flow with `Bug` model, migration, controller, routes, and a full form (`/bugs/new`) capturing reporter info, summary, details, reproduction steps, expectations, severity, status, and environment.
+- Change request flow with `ChangeRequest` model, migration, controller, routes under `/changes`, and a form for requester info, summary, details, benefit, acceptance criteria, priority, status, and target release.
+- Root route now points to the bug report form, with cross-links between bug and change forms.
+
 ## [0.0.3] - 2026-03-19
 ### Added
 - Added `test/application_system_test_case.rb` and a minimal `test/system/smoke_test.rb` so `test:system` has a real target and does not fail on fresh apps.

@@ -10,8 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 0) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_19_141238) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "bugs", force: :cascade do |t|
+    t.text "actual_behavior"
+    t.datetime "created_at", null: false
+    t.text "details", null: false
+    t.string "environment"
+    t.text "expected_behavior"
+    t.string "reporter_email", null: false
+    t.string "reporter_name", null: false
+    t.string "severity", default: "medium", null: false
+    t.string "status", default: "new", null: false
+    t.text "steps_to_reproduce"
+    t.string "summary", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "change_requests", force: :cascade do |t|
+    t.text "acceptance_criteria"
+    t.text "benefit"
+    t.datetime "created_at", null: false
+    t.text "details", null: false
+    t.string "priority", default: "medium", null: false
+    t.string "requester_email", null: false
+    t.string "requester_name", null: false
+    t.string "status", default: "new", null: false
+    t.string "summary", null: false
+    t.string "target_release"
+    t.datetime "updated_at", null: false
+  end
 end

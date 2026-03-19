@@ -1,0 +1,61 @@
+<%= form_with model: change_request do |form| %>
+  <% if change_request.errors.any? %>
+    <div>
+      <h2><%= pluralize(change_request.errors.count, "error") %> prevented this change request from saving:</h2>
+      <ul>
+        <% change_request.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :requester_name, "Name" %><br>
+    <%= form.text_field :requester_name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :requester_email, "Email" %><br>
+    <%= form.email_field :requester_email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :summary, "Change summary" %><br>
+    <%= form.text_field :summary, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :details, "Describe the change" %><br>
+    <%= form.text_area :details, rows: 6, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :benefit, "Why is this valuable?" %><br>
+    <%= form.text_area :benefit, rows: 4 %>
+  </div>
+
+  <div>
+    <%= form.label :acceptance_criteria, "Acceptance criteria" %><br>
+    <%= form.text_area :acceptance_criteria, rows: 4 %>
+  </div>
+
+  <div>
+    <%= form.label :priority %><br>
+    <%= form.select :priority, ChangeRequest::PRIORITIES.map { |value| [value.humanize, value] } %>
+  </div>
+
+  <div>
+    <%= form.label :target_release, "Target release (optional)" %><br>
+    <%= form.text_field :target_release %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, ChangeRequest::STATUSES.map { |value| [value.humanize, value] } %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit change request" %>
+  </div>
+<% end %>

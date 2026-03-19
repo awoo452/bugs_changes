@@ -1,0 +1,66 @@
+<%= form_with model: bug do |form| %>
+  <% if bug.errors.any? %>
+    <div>
+      <h2><%= pluralize(bug.errors.count, "error") %> prevented this bug report from saving:</h2>
+      <ul>
+        <% bug.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :reporter_name, "Name" %><br>
+    <%= form.text_field :reporter_name, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :reporter_email, "Email" %><br>
+    <%= form.email_field :reporter_email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :summary, "Bug summary" %><br>
+    <%= form.text_field :summary, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :details, "What happened?" %><br>
+    <%= form.text_area :details, rows: 6, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :steps_to_reproduce, "Steps to reproduce" %><br>
+    <%= form.text_area :steps_to_reproduce, rows: 5 %>
+  </div>
+
+  <div>
+    <%= form.label :expected_behavior, "Expected behavior" %><br>
+    <%= form.text_area :expected_behavior, rows: 3 %>
+  </div>
+
+  <div>
+    <%= form.label :actual_behavior, "Actual behavior" %><br>
+    <%= form.text_area :actual_behavior, rows: 3 %>
+  </div>
+
+  <div>
+    <%= form.label :severity %><br>
+    <%= form.select :severity, Bug::SEVERITIES.map { |value| [value.humanize, value] } %>
+  </div>
+
+  <div>
+    <%= form.label :environment, "Environment (browser, OS, device)" %><br>
+    <%= form.text_field :environment %>
+  </div>
+
+  <div>
+    <%= form.label :status %><br>
+    <%= form.select :status, Bug::STATUSES.map { |value| [value.humanize, value] } %>
+  </div>
+
+  <div>
+    <%= form.submit "Submit bug report" %>
+  </div>
+<% end %>
