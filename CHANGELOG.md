@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.3] - 2026-03-19
+### Added
+- Added `test/application_system_test_case.rb` and a minimal `test/system/smoke_test.rb` so `test:system` has a real target and does not fail on fresh apps.
+
 ## [0.0.2] - 2026-03-19
 ### Changed
 - Switched Active Record to PostgreSQL in `config/database.yml`, including new `bugs_changes_development`/`bugs_changes_test` databases and a production setup that sources all roles (primary/cache/queue/cable) from `DATABASE_URL`.
