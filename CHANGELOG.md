@@ -7,6 +7,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 ### Changed
 - Refreshed Gemfile.lock via bundle update for Ruby 4.0.2.
 
+## [0.0.9] - 2026-03-21
+### Changed
+- Updated GitHub Actions dependencies: actions/cache v5, actions/upload-artifact v7.
+
 ## [0.0.7] - 2026-03-19
 ### Changed
 - Pinned Ruby to 4.0.2 across runtime files and Gemfile.lock.
