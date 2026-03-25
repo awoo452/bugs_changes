@@ -6,7 +6,7 @@ class ChangeRequestsController < ApplicationController
   end
 
   def create
-    @change_request = ChangeRequest.new(change_request_params)
+    @change_request = ChangeRequest.new(change_request_params.merge(ip_address: request.remote_ip))
 
     if @change_request.save
       redirect_to new_change_request_path, notice: "Thanks! Your change request has been submitted."

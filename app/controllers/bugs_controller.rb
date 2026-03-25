@@ -6,7 +6,7 @@ class BugsController < ApplicationController
   end
 
   def create
-    @bug = Bug.new(bug_params)
+    @bug = Bug.new(bug_params.merge(ip_address: request.remote_ip))
 
     if @bug.save
       redirect_to new_bug_path, notice: "Thanks! Your bug report has been submitted."

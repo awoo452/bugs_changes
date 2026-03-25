@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_03_19_141238) do
+ActiveRecord::Schema[8.1].define(version: 2026_03_25_000000) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_19_141238) do
     t.text "details", null: false
     t.string "environment"
     t.text "expected_behavior"
+    t.string "ip_address"
     t.string "reporter_email", null: false
     t.string "reporter_name", null: false
     t.string "severity", default: "medium", null: false
@@ -34,6 +35,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_03_19_141238) do
     t.text "benefit"
     t.datetime "created_at", null: false
     t.text "details", null: false
+    t.string "ip_address"
     t.string "priority", default: "medium", null: false
     t.string "requester_email", null: false
     t.string "requester_name", null: false

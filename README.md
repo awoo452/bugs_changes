@@ -32,6 +32,7 @@ Optional fields:
 - `expected_behavior`
 - `actual_behavior`
 - `environment`
+- `ip_address`
 
 Severity values:
 - `low`, `medium`, `high`, `critical`
@@ -51,6 +52,7 @@ Optional fields:
 - `benefit`
 - `acceptance_criteria`
 - `target_release`
+- `ip_address`
 
 Priority values:
 - `low`, `medium`, `high`, `urgent`
